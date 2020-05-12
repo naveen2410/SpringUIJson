@@ -5,11 +5,21 @@ $(document).ready(function () {
         //stop submit the form, we will post it manually.
         event.preventDefault();
 
-        fire_ajax_submit();
+        fire_ajax_submit_test();
 
     });
 
 });
+
+function fire_ajax_submit_test() {
+
+    var search = {}
+    search["username"] = $("#username").val();
+
+    $("#btn-search").prop("disabled", true);
+    $('#feedback').html("<h4>Ajax Response</h4>");
+}
+
 
 function fire_ajax_submit() {
 
