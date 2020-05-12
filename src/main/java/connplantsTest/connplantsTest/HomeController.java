@@ -47,22 +47,10 @@ public class HomeController {
         AjaxResponseBody result = new AjaxResponseBody();
 
         //If error, just return a 400 bad request, along with the error message
-        if (errors.hasErrors()) {
-
-            result.setMsg(errors.getAllErrors()
-                        .stream().map(x -> x.getDefaultMessage())
-                        .collect(Collectors.joining(",")));
-
-            return ResponseEntity.badRequest().body(result);
-
-        }
+      
 
         List<User> users = userService.findByUserNameOrEmail(search.getUsername());
-        if (users.isEmpty()) {
-            result.setMsg("no user found!");
-        } else {
-            result.setMsg("success");
-        }
+        result.setMsg("success");
         result.setResult(users);
 
         return ResponseEntity.ok(result);
