@@ -42,6 +42,11 @@ public class HomeController {
     public void setUserService(UserService userService) {
         this.userService = userService;
     }*/
+	
+	@GetMapping
+	public String index() {
+		return "redirect:/ajax";
+	}
 
     @GetMapping("/api/search")
     public ResponseEntity<?> getSearchResultViaAjax(@ModelAttribute SearchCriteria search) {
