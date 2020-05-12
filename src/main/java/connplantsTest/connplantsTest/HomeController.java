@@ -50,7 +50,7 @@ public class HomeController {
 	}
 
 	@GetMapping("/test")
-	public String loginForm(Model model) {
+	public String loginForm() {
 		 //model.addAttribute("username", new SearchCriteria());
 		return "test";
 	}
