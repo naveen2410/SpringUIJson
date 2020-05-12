@@ -51,7 +51,7 @@ public class HomeController {
 
 	@GetMapping("/abc")
 	public String loginForm(Model model) {
-		model.addAttribute("username", new SearchCriteria());
+		 model.addAttribute("username", new SearchCriteria());
 		return "ajax";
 	}
 	
