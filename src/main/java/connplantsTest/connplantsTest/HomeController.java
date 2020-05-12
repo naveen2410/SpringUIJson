@@ -59,7 +59,7 @@ public class HomeController {
 	@GetMapping("/user")
 	public String loginUser(Model model) {
 		 model.addAttribute("username", new SearchCriteria());
-		return "test";
+		return "ajax";
 	}
 	
     @GetMapping("/api/search")
