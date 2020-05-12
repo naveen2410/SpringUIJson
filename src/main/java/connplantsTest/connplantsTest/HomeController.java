@@ -56,6 +56,12 @@ public class HomeController {
 		return "test";
 	}
 	
+	@GetMapping("/user")
+	public String loginUser(Model model) {
+		 model.addAttribute("username", new SearchCriteria());
+		return "test";
+	}
+	
     @GetMapping("/api/search")
     public ResponseEntity<?> getSearchResultViaAjax(@ModelAttribute SearchCriteria search) {
 
