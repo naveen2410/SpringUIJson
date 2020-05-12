@@ -47,7 +47,7 @@ public class HomeController {
 	
 	@GetMapping
 	public String index() {
-		return "redirect:/test";
+		return "redirect:/user";
 	}
 
 	@GetMapping("/test")

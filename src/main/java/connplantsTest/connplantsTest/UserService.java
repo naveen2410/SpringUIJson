@@ -16,7 +16,7 @@ public class UserService {
     	User user1 = new User("mkyong", "password111", "mkyong@yahoo.com");
         //User user2 = new User("yflow", "password222", "yflow@yahoo.com");
     	
-        List<User> result = new ArrayList<User>();;
+        List<User> result = new ArrayList<User>();
         result.add(user1);
         //result.add(user2);
         
