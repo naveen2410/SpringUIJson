@@ -20,10 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -42,8 +44,7 @@ public class HomeController {
     }*/
 
     @GetMapping("/api/search")
-    public ResponseEntity<?> getSearchResultViaAjax(
-            @Valid @RequestBody SearchCriteria search, Errors errors) {
+    public ResponseEntity<?> getSearchResultViaAjax(@ModelAttribute SearchCriteria search) {
 
         AjaxResponseBody result = new AjaxResponseBody();
 
