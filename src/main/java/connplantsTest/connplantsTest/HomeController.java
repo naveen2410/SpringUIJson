@@ -62,7 +62,7 @@ public class HomeController {
 		return "ajax";
 	}
 	
-    @GetMapping("/api/search")
+    @PostMapping("/api/search")
     public ResponseEntity<?> getSearchResultViaAjax(@ModelAttribute SearchCriteria search) {
 
         AjaxResponseBody result = new AjaxResponseBody();
