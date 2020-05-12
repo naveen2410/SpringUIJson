@@ -46,13 +46,13 @@ public class HomeController {
 	
 	@GetMapping
 	public String index() {
-		return "redirect:/abc";
+		return "redirect:/test";
 	}
 
-	@GetMapping("/abc")
+	@GetMapping("/test")
 	public String loginForm(Model model) {
-		 model.addAttribute("username", new SearchCriteria());
-		return "ajax";
+		 //model.addAttribute("username", new SearchCriteria());
+		return "test";
 	}
 	
     @GetMapping("/api/search")
