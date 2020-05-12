@@ -33,12 +33,12 @@ import java.util.stream.Collectors;
 @RestController
 public class HomeController {
 
-	UserService userService;
+	UserService userService = new UserService();
 
-    @Autowired
+   /* @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
-    }
+    }*/
 
     @PostMapping("/api/search")
     public ResponseEntity<?> getSearchResultViaAjax(
