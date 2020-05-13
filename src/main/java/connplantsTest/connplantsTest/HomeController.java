@@ -71,7 +71,7 @@ public class HomeController {
       
 
         List<User> users = userService.findByUserNameOrEmail(search.getUsername());
-        result.setMsg("success");
+        //result.setMsg("success");
         result.setResult(users);
 
         return ResponseEntity.ok(result);

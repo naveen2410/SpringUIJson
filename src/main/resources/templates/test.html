@@ -37,18 +37,17 @@
 		            url: "/api/search",
 		            data: JSON.stringify(search),
 		            dataType: 'json',
-		            complete: [
-	                    function (response) {
+		            success: function (data) {
 	                        $("#scheduleTable").find("tr:not(:first)").remove();
 	                        var trHTML = '';
-	                        var obj = $.parseJSON(response.responseText);
+	                        var obj = $.parseJSON(data.responseText);
 	                        for (var i = 0; i < obj.length; i++) {
 	                            trHTML += '<tr><td><label>' + obj[i].username + '</label></td><td>' + obj[i].password + '</td></tr>';
 	                        }
 	                        trHTML += '<tr><td><label>Hi</label></td><td>Bye</td></tr>';
 	                        $("#scheduleTable tbody").append(trHTML);
 	                    }
-	                ]
+	                
 		        });
 		        
 				
