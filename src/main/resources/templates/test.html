@@ -50,6 +50,14 @@
 		            	
 		            	document.getElementById("feedback1").innerHTML = x;
 		            	
+		            	$("#scheduleTable").find("tr:not(:first)").remove();
+                        var trHTML = '';
+		            	for (i in myObj.result) {
+		            		  
+		            		   trHTML += '<tr><td><label>' + myObj.result[i].username + '</label></td><td>' + myObj.result[i].password + '</td></tr>';
+		            		}
+		            	$("#scheduleTable tbody").append(trHTML);
+		            	
 		            	/*$("#scheduleTable").find("tr:not(:first)").remove();
                         var trHTML = '';
                         var obj = $.parseJSON(data.responseText);
