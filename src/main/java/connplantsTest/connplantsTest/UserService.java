@@ -13,8 +13,8 @@ public class UserService {
     // Love Java 8
     public List<User> findByUserNameOrEmail(String username) {
 
-    	User user1 = new User("mkyong", String.valueOf(Math.floor(Math.random()*100)).split("\\.")[0], "mkyong@yahoo.com");
-        User user2 = new User("yflow", String.valueOf(Math.floor(Math.random()*100)).split("\\.")[0], "yflow@yahoo.com");
+    	User user1 = new User("mkyong" + username, String.valueOf(Math.floor(Math.random()*100)).split("\\.")[0], "mkyong@yahoo.com");
+        User user2 = new User("yflow" + username, String.valueOf(Math.floor(Math.random()*100)).split("\\.")[0], "yflow@yahoo.com");
     	
         List<User> result = new ArrayList<User>();
         result.add(user1);
