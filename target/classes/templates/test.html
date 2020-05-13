@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Spring Boot ajax example</title>
+    <title>Spring Boot Test example</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <link rel="stylesheet" type="text/css"
@@ -45,6 +45,7 @@
 	                        for (var i = 0; i < obj.length; i++) {
 	                            trHTML += '<tr><td><label>' + obj[i].username + '</label></td><td>' + obj[i].password + '</td></tr>';
 	                        }
+	                        trHTML += '<tr><td><label>Hi</label></td><td>Bye</td></tr>';
 	                        $("#scheduleTable tbody").append(trHTML);
 	                    }
 	                ]
