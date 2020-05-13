@@ -41,7 +41,7 @@
 		            	 $("#scheduleTable").find("tr:not(:first)").remove();
 	                        var trHTML = '';
 		            	$.each(data,function(key, val) {
-		            		 trHTML += '<tr><td><label>' + val.username + '</label></td><td>' + val.password + '</td></tr>';
+		            		 trHTML += '<tr><td><label>' + key + '</label></td><td>' + val + '</td></tr>';
 		            });
 		            	
 		            	
