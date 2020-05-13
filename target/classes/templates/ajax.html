@@ -41,15 +41,14 @@
 		            timeout: 600000,
 		            success: function (data) {
 
-		                var json = "<h4>Ajax Response</h4>&lt;pre&gt;"
-		                    + JSON.stringify(data, null, 4) + "&lt;/pre&gt;";
+		                var json = JSON.stringify(data, null, 4);
 		                $('#feedback').html(json);
 
 		                console.log("SUCCESS : ", data);
 
 		                $("#scheduleTable").find("tr:not(:first)").remove();
                         var trHTML = '';
-                        var obj = $.parseJSON(data.responseText);
+                        var obj = $.parseJSON(json.responseText);
                         for (var i = 0; i < obj.length; i++) {
                             trHTML += '<tr><td><label>' + obj[i].subject + '</label></td><td>' + obj[i].stringDate + '</td></tr>';
                         }
