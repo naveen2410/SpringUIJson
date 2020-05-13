@@ -46,13 +46,7 @@
 
 		                console.log("SUCCESS : ", data);
 
-		                $("#scheduleTable").find("tr:not(:first)").remove();
-                        var trHTML = '';
-var obj = json;
-                        for (var i = 0; i < obj.length; i++) {
-                            trHTML += '<tr><td><label>' + obj[i].username + '</label></td><td>' + obj[i].password + '</td></tr>';
-                        }
-                        $("#scheduleTable tbody").append(trHTML);
+		              
 		                
 
 		            },
