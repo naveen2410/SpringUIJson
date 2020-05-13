@@ -22,10 +22,45 @@
 		      
 				alert("I m about to call ajax... Hold tight and put your seat belts on!!");
 				//alert("Hello " + user.username.innerHTML);
-			    document.getElementById("feedback").innerHTML = "<h4>Ajax Response</h4>";
+			    //document.getElementById("feedback").innerHTML = "<h4>Ajax Response</h4>";
 				
 				var str = $("#username").val();
 		        alert("username 3 = "+str);
+		        
+		        
+		        var search = {}
+		        search["username"] = str;
+		        
+		        $.ajax({
+		            type: "POST",
+		            contentType: "application/json",
+		            url: "/api/search",
+		            data: JSON.stringify(search),
+		            dataType: 'json',
+		            cache: false,
+		            timeout: 600000,
+		            success: function (data) {
+
+		                var json = "<h4>Ajax Response</h4>&lt;pre&gt;"
+		                    + JSON.stringify(data, null, 4) + "&lt;/pre&gt;";
+		                $('#feedback').html(json);
+
+		                console.log("SUCCESS : ", data);
+		               
+
+		            },
+		            error: function (e) {
+
+		                var json = "<h4>Ajax Response</h4>&lt;pre&gt;"
+		                    + e.responseText + "&lt;/pre&gt;";
+		                $('#feedback').html(json);
+
+		                console.log("ERROR : ", e);
+		                $("#btn-search").prop("disabled", false);
+
+		            }
+		        });
+		        
 				
 			}
 		</script>
