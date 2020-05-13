@@ -15,10 +15,11 @@
           
           <script type="text/javascript">
 		
-			function selectOrder(){
+			function selectOrder(user){
 				
 		      
 				alert("I m about to call ajax... Hold tight and put your seat belts on!!");
+				alert("Hello " + user.username.innerHTML);
 			    
 			}
 		</script>
@@ -48,7 +49,7 @@
 
             <div >
                 <div>
-                    <button  id="bth-search" onclick="selectOrder();"">Search
+                    <button  id="bth-search" onclick="selectOrder(this);"">Search
                     </button>
                 </div>
             </div>
