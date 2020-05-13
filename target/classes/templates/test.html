@@ -35,16 +35,23 @@
 		            type: "POST",
 		            contentType: "application/json",
 		            url: "/api/search",
+		            data: JSON.stringify(search),
 		            dataType: 'json',
 		            success: function (data) {
-		            	$("#scheduleTable").find("tr:not(:first)").remove();
+		            	 var json = JSON.stringify(data, null, 4);
+		            	$('#feedback').html(json);
+		            	
+		            	var obj = JSON.parse(json);
+		            	document.getElementById("feedback1").innerHTML = obj.username + ", " + obj.password;
+		            	
+		            	/*$("#scheduleTable").find("tr:not(:first)").remove();
                         var trHTML = '';
                         var obj = $.parseJSON(data.responseText);
                         for (var i = 0; i < obj.length; i++) {
                             trHTML += '<tr><td><label>' + obj[i].username + '</label></td><td>' + obj[i].password + '</td></tr>';
                         }
                         $("#scheduleTable tbody").append(trHTML);
-	                    }
+	                    }*/
 	                
 		        });
 		        
@@ -64,6 +71,7 @@
 
         <div id="feedback"></div>
 
+<div id="feedback1"></div>
 
 
 
