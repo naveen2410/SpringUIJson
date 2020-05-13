@@ -4,7 +4,7 @@ $(document).ready(function () {
 
         //stop submit the form, we will post it manually.
         event.preventDefault();
-
+alert("I m about to call ajax... Hold tight and put your seat belts on!!");
         fire_ajax_submit_test();
 
     });
@@ -12,11 +12,8 @@ $(document).ready(function () {
 });
 
 function fire_ajax_submit_test() {
-
-    var search = {}
-    search["username"] = $("#username").val();
-
-    $("#btn-search").prop("disabled", true);
+alert("Hakoona Matata");
+   
     $('#feedback').html("<h4>Ajax Response</h4>");
 }
 
