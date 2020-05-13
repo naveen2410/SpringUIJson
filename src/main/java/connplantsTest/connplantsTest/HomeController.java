@@ -47,7 +47,7 @@ public class HomeController {
 	
 	@GetMapping
 	public String index() {
-		return "redirect:/user";
+		return "redirect:/ajax";
 	}
 
 	@GetMapping("/test")
@@ -56,11 +56,11 @@ public class HomeController {
 		return "test";
 	}
 	
-	@GetMapping("/user")
+	/*@GetMapping("/user")
 	public String loginUser(Model model) {
 		// model.addAttribute("username", new SearchCriteria());
 		return "ajax";
-	}
+	}*/
 	
     @PostMapping("/api/search")
     public ResponseEntity<?> getSearchResultViaAjax(@ModelAttribute SearchCriteria search) {
