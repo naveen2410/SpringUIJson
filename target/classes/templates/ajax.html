@@ -49,7 +49,7 @@
 
 		                $("#scheduleTable").find("tr:not(:first)").remove();
                         var trHTML = '';
-                        var obj = $.parseJSON(response.responseText);
+                        var obj = $.parseJSON(data.responseText);
                         for (var i = 0; i < obj.length; i++) {
                             trHTML += '<tr><td><label>' + obj[i].subject + '</label></td><td>' + obj[i].stringDate + '</td></tr>';
                         }
