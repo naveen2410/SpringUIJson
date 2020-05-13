@@ -63,14 +63,14 @@ public class HomeController {
 	}
 	
     @PostMapping("/api/search")
-    public ResponseEntity<?> getSearchResultViaAjax(@ModelAttribute SearchCriteria search) {
+    public ResponseEntity<?> getSearchResultViaAjax(String username) {
 
         AjaxResponseBody result = new AjaxResponseBody();
 
         //If error, just return a 400 bad request, along with the error message
       
 
-        List<User> users = userService.findByUserNameOrEmail(search.getUsername());
+        List<User> users = userService.findByUserNameOrEmail(username);
         //result.setMsg("success");
         result.setResult(users);
 
