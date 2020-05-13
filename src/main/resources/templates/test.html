@@ -41,7 +41,13 @@
 		            	 var json = JSON.stringify(data, null, 4);
 		            	$('#feedback').html(json);
 		            	
-		            	var obj = JSON.parse(json);
+		            	var myObj, x;
+		            	
+		            	myObj = json;
+		            	
+		            	x += "<h2>" + myObj.result[i].username + "</h2>";
+		            	   x += "<h2>" + myObj.result[i].password + "</h2>";
+		            	
 		            	document.getElementById("feedback1").innerHTML = obj.username + ", " + obj.password;
 		            	
 		            	/*$("#scheduleTable").find("tr:not(:first)").remove();
