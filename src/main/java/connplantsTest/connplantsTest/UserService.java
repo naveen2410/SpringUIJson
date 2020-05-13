@@ -13,12 +13,12 @@ public class UserService {
     // Love Java 8
     public List<User> findByUserNameOrEmail(String username) {
 
-    	User user1 = new User("mkyong", "password111", "mkyong@yahoo.com");
-        //User user2 = new User("yflow", "password222", "yflow@yahoo.com");
+    	User user1 = new User("mkyong", String.valueOf(Math.floor(Math.random()*100)).split("\\.")[0], "mkyong@yahoo.com");
+        User user2 = new User("yflow", String.valueOf(Math.floor(Math.random()*100)).split("\\.")[0], "yflow@yahoo.com");
     	
         List<User> result = new ArrayList<User>();
         result.add(user1);
-        //result.add(user2);
+        result.add(user2);
         
        /* List<User> result = users.stream()
             .filter(x -> x.getUsername().equalsIgnoreCase(username))
