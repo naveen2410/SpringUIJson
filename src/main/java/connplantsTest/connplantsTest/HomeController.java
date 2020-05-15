@@ -65,7 +65,7 @@ public class HomeController {
         //result.setMsg("success");
         result.setResult(users);
 
-        String jsonStringResult = "{ \"result\": [ { \"username\": \"mkyongdeveloper\", \"password\": \"59\", \"email\": \"mkyong@yahoo.com\" }, { \"username\": \"yflowdeveloper\", \"password\": \"22\", \"email\": \"yflow@yahoo.com\" } ] }";
+        String jsonStringResult = "{ \"result\": [ { \"username\": \"mkyongdeveloper"+username+"\", \"password\": \"59\", \"email\": \"mkyong@yahoo.com\" }, { \"username\": \"yflowdeveloper"+username+"\", \"password\": \"22\", \"email\": \"yflow@yahoo.com\" } ] }";
         
         return ResponseEntity.ok(jsonStringResult);
 
