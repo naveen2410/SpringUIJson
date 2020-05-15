@@ -53,7 +53,7 @@ public class HomeController {
 		return "test";
 	}
 	
-    @PostMapping("/api/search")
+    @PostMapping("/api/search/{username}")
     public ResponseEntity<?> getSearchResultViaAjax(@PathVariable("username") String username) {
 
         AjaxResponseBody result = new AjaxResponseBody();
