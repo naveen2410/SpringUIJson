@@ -23,10 +23,13 @@ $(function () {
    
    var myObj, x;
    
+   var str = "sitename";
+   var search = {}
+		        search["username"] = str;
     $.ajax({
 		            type: "POST",
 		            contentType: "application/json",
-		            url: "/api/search/abcd",
+		            url: "/api/search/"+str,
 		            data: JSON.stringify(search),
 		            dataType: 'json',
 		            success: function (data) {
