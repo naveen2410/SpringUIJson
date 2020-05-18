@@ -71,8 +71,8 @@ public class HomeController {
         //result.setMsg("success");
         result.setResult(users);
 
-        String jsonStringResult = "{ \"result\": [ { \"username\": \"mkyongdeveloper"+username+"\", \"password\": \"59\", \"email\": \"mkyong@yahoo.com\" }, { \"username\": \"yflowdeveloper"+username+"\", \"password\": \"22\", \"email\": \"yflow@yahoo.com\" } ] }";
-        
+        //String jsonStringResult = "{ \"result\": [ { \"username\": \"mkyongdeveloper"+username+"\", \"password\": \"59\", \"email\": \"mkyong@yahoo.com\" }, { \"username\": \"yflowdeveloper"+username+"\", \"password\": \"22\", \"email\": \"yflow@yahoo.com\" } ] }";
+        String jsonStringResult = "{\"y\": 50,\"color\": \"red\",\"drilldown\": {\"categories\": [1,2,3,4], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [10.85, 7.35, 33.06, 2.81], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10, 15], \"color\": \"green\"}]}}";
         return ResponseEntity.ok(jsonStringResult);
 
     }

@@ -21,6 +21,28 @@ $(function () {
     var chart;
     $(document).ready(function() {
    
+   var myObj, x;
+   
+    $.ajax({
+		            type: "POST",
+		            contentType: "application/json",
+		            url: "/api/search/abcd",
+		            data: JSON.stringify(search),
+		            dataType: 'json',
+		            success: function (data) {
+		            	 var json = JSON.stringify(data, null, 4);
+		            	$('#feedback').html(json);
+		            	
+		            	
+		            	
+		            	
+		            	
+	                    }
+	                
+		        });
+   
+   
+   
         var colors = Highcharts.getOptions().colors,
             categories = ['MSIE','Firefox'],
             name = ['Browser brands','Another'],
@@ -38,24 +60,6 @@ $(function () {
                             type: 'column',
                             name: 'MSIE versions 2010',
                             data: [1, 5, 10, 15],
-                            color: colors[0]
-                        }]
-                    }
-                }, {
-                    y: 23,
-                    color: colors[1],
-                    drilldown: {
-                       
-                        categories: ['Firefox 2.0', 'Firefox 3.0', 'Firefox 3.5', 'Firefox 3.6', 'Firefox 4.0'],
-                        series: [{
-                            type: 'column',
-                            name: 'FF versions 2000',
-                            data: [20.85, 17.35, 13.06, 25.81],
-                            color: colors[0]
-                        },{
-                            type: 'column',
-                            name: 'FF versions 2010',
-                            data: [11, 52, 14, 35],
                             color: colors[0]
                         }]
                     }
@@ -178,7 +182,7 @@ $(function () {
 
 </head>
 <body>
-
+ <div id="feedback"></div>
 <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
 
 </body>
