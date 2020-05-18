@@ -23,7 +23,7 @@ $(function () {
    
    var myObj, x;
    
-   var str = "sitename";
+  /* var str = "sitename";
    var search = {}
 		        search["username"] = str;
     $.ajax({
@@ -43,7 +43,11 @@ $(function () {
 	                    }
 	                
 		        });
-   
+   */
+    
+    var text = '[{"y": 50,"color": "red","drilldown": {"categories": ["cat1","cat2","cat3","cat4"], "series": [{"type": "column","name": "Target","data": [10.85, 7.35, 33.06, 2.81], "color": "blue"},{"type": "column","name": "Actual","data": [1, 5, 10, 15], "color": "green"}]}}]';
+    
+    var myObj = JSON.parse(text);
    
    
         var colors = Highcharts.getOptions().colors,
