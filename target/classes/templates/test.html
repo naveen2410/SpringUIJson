@@ -1,37 +1,32 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Spring Boot Test example</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Production Analysis - View</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet"
+href="https://code.highcharts.com/css/highcharts.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
 
-    <link rel="stylesheet" type="text/css"
-          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
-          
-          <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-          
-     <!--      <script type="text/javascript"
-        src="webjars/jquery/2.2.4/jquery.min.js"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
 
-<script type="text/javascript" src="/connplantsTest/src/main/resources/static/js/main.js"></script> -->
-          
-          <script type="text/javascript">
-		
-			function selectOrder(user){
-				
-		      
-				//alert("I m about to call ajax... Hold tight and put your seat belts on!!");
-				//alert("Hello " + user.username.innerHTML);
-			    //document.getElementById("feedback").innerHTML = "<h4>Ajax Response</h4>";
-				
-				var str = $("#username").val();
-		        //alert("username 3 = "+str);
-		        
-		        
-		        var search = {}
+$(function () {
+    var chart;
+    $(document).ready(function() {
+   
+   var myObj, x;
+   
+   var str = "sitename";
+   var search = {}
 		        search["username"] = str;
-		        
-		        $.ajax({
+    $.ajax({
 		            type: "POST",
 		            contentType: "application/json",
 		            url: "/api/search/"+str,
@@ -41,92 +36,140 @@
 		            	 var json = JSON.stringify(data, null, 4);
 		            	$('#feedback').html(json);
 		            	
-		            	var myObj, x;
-		            	
 		            	myObj = JSON.parse(json);
-		            	$('#feedback1').html(myObj);
 		            	
-		            	x += "<h2>" + myObj.result[0].username + "</h2>";
-		            	   x += "<h2>" + myObj.result[0].password + "</h2>";
 		            	
-		            	//document.getElementById("feedback1").innerHTML = x;
 		            	
-		            	$("#scheduleTable").find("tr:not(:first)").remove();
-                        var trHTML = '';
-		            	for (i in myObj.result) {
-		            		  
-		            		   trHTML += '<tr><td><label>' + myObj.result[i].username + '</label></td><td>' + myObj.result[i].password + '</td></tr>';
-		            		}
-		            	$("#scheduleTable tbody").append(trHTML);
-		            	
-		            	/*$("#scheduleTable").find("tr:not(:first)").remove();
-                        var trHTML = '';
-                        var obj = $.parseJSON(data.responseText);
-                        for (var i = 0; i < obj.length; i++) {
-                            trHTML += '<tr><td><label>' + obj[i].username + '</label></td><td>' + obj[i].password + '</td></tr>';
-                        }
-                        $("#scheduleTable tbody").append(trHTML);*/
 	                    }
 	                
 		        });
-		        
-				
-			}
-		</script>
-          
+   
+   
+   
+        var colors = Highcharts.getOptions().colors,
+            categories = ['MSIE','Firefox'],
+            name = ['Browser brands','Another'],
+            data = [myObj]
+;
+   
+        function setChart(name, categories, data, color, type) {
+            var len = chart.series.length;
+            chart.xAxis[0].setCategories(categories);
+            for(var i = 0; i < len; i++){
+                console.log(chart.series.length);
+                chart.series[0].remove();
+            }
+            console.log('a');
+            if(data.series){
+                for(var i = 0; i < data.series.length; i ++ ){
+                    chart.addSeries({
+                        name: data.series[i].name,
+                        data: data.series[i].data,
+                        type: data.series[i].type,
+                        color: data.series[i].color || 'white'
+                    });
+                }
+            } else {
+                    chart.addSeries({
+                        name: name,
+                        data: data,
+                        type: type,
+                        color: color || 'white'
+                    });
+            }
+        }
+   
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'column'
+            },
+            title: {
+                text: 'Browser market share, April, 2011'
+            },
+            subtitle: {
+                text: 'Click the columns to view versions. Click again to view brands.'
+            },
+            xAxis: {
+                categories: categories
+            },
+            yAxis: {
+                title: {
+                    text: 'Total percent market share'
+                }
+            },
+            plotOptions: {
+                column: {
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function() {
+                                var drilldown = this.drilldown;
+                                if (drilldown) { // drill down
+                                    setChart(null, drilldown.categories, drilldown, drilldown.type);
+                                } else { // restore
+                                    setChart(name, categories, data, 'column');
+                                }
+                            }
+                        }
+                    },
+                    dataLabels: {
+                        enabled: true
+                 
+                    }
+                },
+                spline: {
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function() {
+                                var drilldown = this.drilldown;
+                                if (drilldown) { // drill down
+                                    setChart(null, drilldown.categories, drilldown, drilldown.type);
+                                } else { // restore
+                                    setChart(name, categories, data, 'column');
+                                }
+                            }
+                        }
+                    },
+                    dataLabels: {
+                        enabled: false
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    var point = this.point,
+                        s = this.x +':<b>'+ this.y +'% market share</b><br/>';
+                    if (point.drilldown) {
+                        s += 'Click to view '+ point.category +' versions';
+                    } else {
+                        s += 'Click to return to browser brands';
+                    }
+                    return s;
+                }
+            },
+            series: [{
+                name: name,
+                data: data,
+                color: 'white'
+            }],
+            exporting: {
+                enabled: true
+            }
+        });
+    });
+   
+});
+       
+    /*]]>*/
+    </script>
+
+
 </head>
 <body>
-
-
-
-<div  >
-
-    <div >
-        <h1>Spring Boot AJAX Example</h1>
-
-        <div id="feedback"></div>
-
-<div id="feedback1"></div>
-
-
-
-        
-            <div >
-                <label >Username</label>
-                <div >
-                    <input type="text"  id="username"/>
-                </div>
-            </div>
-
-            <div >
-                <div>
-                    <button  id="bth-search" onclick="selectOrder(this);"">Search
-                    </button>
-                </div>
-            </div>
-  
-
-    </div>
-    
-    
-    <div  style="width:100%">
-		
-<table id="scheduleTable" align="left" class="order-table" style="width: 50%">
-        <thead>
-        <tr>
-            <th align="left">Username</th>
-            <th align="left">Password</th>
-        </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-
-	</div>
-
-</div>
-
-
-
+ <div id="feedback"></div>
+<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
 
 </body>
 </html>
