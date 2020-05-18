@@ -36,7 +36,7 @@ $(function () {
 		            	 var json = JSON.stringify(data, null, 4);
 		            	$('#feedback').html(json);
 		            	
-		            	
+		            	myObj = JSON.parse(json);
 		            	
 		            	
 		            	
@@ -49,25 +49,7 @@ $(function () {
         var colors = Highcharts.getOptions().colors,
             categories = ['MSIE','Firefox'],
             name = ['Browser brands','Another'],
-            data = [{
-                    y: 55.11,
-                    color: colors[0],
-                    drilldown: {
-                        categories: ['MSIE 6.0', 'MSIE 7.0', 'MSIE 8.0', 'MSIE 9.0'],
-                        series: [{
-                            type: 'column',
-                            name: 'MSIE versions 2000',
-                            data: [10.85, 7.35, 33.06, 2.81],
-                            color: colors[0]
-                        },{
-                            type: 'column',
-                            name: 'MSIE versions 2010',
-                            data: [1, 5, 10, 15],
-                            color: colors[0]
-                        }]
-                    }
-                }]
-;
+            data = myObj;
    
         function setChart(name, categories, data, color, type) {
             var len = chart.series.length;
