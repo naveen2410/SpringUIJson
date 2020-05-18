@@ -59,21 +59,23 @@ public class HomeController {
 		return "test";
 	}
 	
-    @PostMapping("/api/search/{username}")
-    public ResponseEntity<?> getSearchResultViaAjax(@PathVariable("username") String username) {
+    @PostMapping("/api/search/{sitelist}")
+    public ResponseEntity<?> getSearchResultViaAjax(@PathVariable("sitelist") String sitelist) {
 
-        AjaxResponseBody result = new AjaxResponseBody();
-
-        //If error, just return a 400 bad request, along with the error message
-      
-
-        List<User> users = userService.findByUserNameOrEmail(username);
-        //result.setMsg("success");
-        result.setResult(users);
+        //AjaxResponseBody result = new AjaxResponseBody();
+        //List<User> users = userService.findByUserNameOrEmail(sitelist);
+        //result.setResult(users);
 
         //String jsonStringResult = "{ \"result\": [ { \"username\": \"mkyongdeveloper"+username+"\", \"password\": \"59\", \"email\": \"mkyong@yahoo.com\" }, { \"username\": \"yflowdeveloper"+username+"\", \"password\": \"22\", \"email\": \"yflow@yahoo.com\" } ] }";
         //String jsonStringResult = "[{\"y\": 40,\"color\": \"red\",\"drilldown\": {\"categories\": [\"cat1\",\"cat2\",\"cat3\",\"cat4\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [10.85, 7.35, 33.06, 2.81], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10, 15], \"color\": \"green\"}]}}]";
-        String jsonStringResult = "[{\"y\": 40,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 1\",\"order 2\",\"order 3\",\"order 4\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [10.85, 7.35, 33.06, 2.81], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10, 15], \"color\": \"green\"}]}},{\"y\": 50,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 5\",\"order 6\",\"order 7\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [20.85, 17.35, 36.06], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10], \"color\": \"green\"}]}},{\"y\": 60,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 9\",\"order 10\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [10.85, 7.35], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5], \"color\": \"green\"}]}}]";
+        
+    	
+    	
+    	String jsonStringResult = "["
+        		+ "{\"y\": 40,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 1\",\"order 2\",\"order 3\",\"order 4\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [10.85, 7.35, 33.06, 2.81], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10, 15], \"color\": \"green\"}]}}"
+        		+ ",{\"y\": 50,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 5\",\"order 6\",\"order 7\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [20.85, 17.35, 36.06], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10], \"color\": \"green\"}]}}"
+        		+ ",{\"y\": 60,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 9\",\"order 10\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [10.85, 7.35], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5], \"color\": \"green\"}]}}"
+        		+ "]";
         return ResponseEntity.ok(jsonStringResult);
 
     }

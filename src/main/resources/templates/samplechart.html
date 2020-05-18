@@ -17,15 +17,15 @@ href="https://code.highcharts.com/css/highcharts.css" />
 <script th:inline="javascript">
     /*<![CDATA[*/
 
-$(function () {
+function selectOrder(user){
     var chart;
-    $(document).ready(function() {
+    
    
    var myObj, text;
    
-   var str = "sitename";
+   var str = $("#sitelist").val();
    var search = {}
-		        search["username"] = str;
+		        search["sitelist"] = str;
     $.ajax({
 		            type: "POST",
 		            contentType: "application/json",
@@ -36,7 +36,7 @@ $(function () {
 		            	text = JSON.stringify(data, null, 4);
 		           
 				   
-				   var text1 = '[{"y": 50,"color": "red","drilldown": {"categories": ["cat1","cat2","cat3","cat4"], "series": [{"type": "column","name": "Target","data": [10.85, 7.35, 33.06, 2.81], "color": "blue"},{"type": "column","name": "Actual","data": [1, 5, 10, 15], "color": "green"}]}}]';
+				  // var text1 = '[{"y": 50,"color": "red","drilldown": {"categories": ["cat1","cat2","cat3","cat4"], "series": [{"type": "column","name": "Target","data": [10.85, 7.35, 33.06, 2.81], "color": "blue"},{"type": "column","name": "Actual","data": [1, 5, 10, 15], "color": "green"}]}}]';
     
     var myObj = JSON.parse(text);
    
@@ -160,9 +160,9 @@ $(function () {
    
     
     
-    });
    
-});
+   
+}
        
     /*]]>*/
     </script>
@@ -170,6 +170,21 @@ $(function () {
 
 </head>
 <body>
+
+ <div >
+                <label >Username</label>
+                <div >
+                    <input type="text"  id="sitelist"/>
+                </div>
+            </div>
+
+            <div >
+                <div>
+                    <button  id="bth-search" onclick="selectOrder(this);"">Search
+                    </button>
+                </div>
+            </div>
+
  <div id="feedback"></div>
 <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
 
