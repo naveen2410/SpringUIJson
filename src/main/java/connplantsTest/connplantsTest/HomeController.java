@@ -38,7 +38,13 @@ public class HomeController {
 	
 	@GetMapping
 	public String index() {
-		return "redirect:/user";
+		return "redirect:/chart";
+	}
+	
+	@GetMapping("/chart")
+	public String loginUser1(Model model) {
+		// model.addAttribute("username", new SearchCriteria());
+		return "samplechart";
 	}
 
 	@GetMapping("/test")
