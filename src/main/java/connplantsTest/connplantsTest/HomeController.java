@@ -70,7 +70,7 @@ public class HomeController {
         //String jsonStringResult = "[{\"y\": 40,\"color\": \"red\",\"drilldown\": {\"categories\": [\"cat1\",\"cat2\",\"cat3\",\"cat4\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [10.85, 7.35, 33.06, 2.81], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10, 15], \"color\": \"green\"}]}}]";
         
     	//String siteArr[] = sitelist.split(",");
-    	int length = sitelist.split(",").length;
+    	//int length = sitelist.split(",").length;
     	
     	//String site_PPME = "{\"y\": 40,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 1\",\"order 2\",\"order 3\",\"order 4\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [10.85, 7.35, 33.06, 2.81], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10, 15], \"color\": \"green\"}]}}";
     	//String site_EXID = "{\"y\": 50,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 5\",\"order 6\",\"order 7\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [20.85, 17.35, 36.06], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10], \"color\": \"green\"}]}}";
@@ -81,10 +81,9 @@ public class HomeController {
     	String jsonStringResult = "["
     			+"{\"y\": 40,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 1\",\"order 2\",\"order 3\",\"order 4\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [10.85, 7.35, 33.06, 2.81], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10, 15], \"color\": \"green\"}]}}"
         		+ ",{\"y\": 50,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 5\",\"order 6\",\"order 7\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [20.85, 17.35, 36.06], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10], \"color\": \"green\"}]}}"
-        		+ ",{\"y\": 60,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 9\",\"order 10\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [10.85, 7.35], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5], \"color\": \"green\"}]}}"
         		+ "]";
     	
-    	if(length == 1)
+    	/*if(length == 1)
     	{
     		jsonStringResult = "["
         			+"{\"y\": 40,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 1\",\"order 2\",\"order 3\",\"order 4\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [10.85, 7.35, 33.06, 2.81], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10, 15], \"color\": \"green\"}]}}"
@@ -96,7 +95,7 @@ public class HomeController {
         			+"{\"y\": 40,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 1\",\"order 2\",\"order 3\",\"order 4\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [10.85, 7.35, 33.06, 2.81], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10, 15], \"color\": \"green\"}]}}"
             		+ ",{\"y\": 50,\"color\": \"red\",\"drilldown\": {\"categories\": [\"order 5\",\"order 6\",\"order 7\"], \"series\": [{\"type\": \"column\",\"name\": \"Target\",\"data\": [20.85, 17.35, 36.06], \"color\": \"blue\"},{\"type\": \"column\",\"name\": \"Actual\",\"data\": [1, 5, 10], \"color\": \"green\"}]}}"
             		+ "]";
-    	}	
+    	}	*/
         		
         return ResponseEntity.ok(jsonStringResult);
 
