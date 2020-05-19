@@ -23,7 +23,7 @@ function selectOrder(user){
    
    var myObj, text;
    
-   var str = "sitelist";
+   var str = 'a';
    var search = {}
 		        search["sitelist"] = str;
     $.ajax({
@@ -42,8 +42,8 @@ function selectOrder(user){
    
    
         var colors = Highcharts.getOptions().colors,
-            categories = ['PPME','EXID'],
-            name = ['Site1','Site2'],
+            categories = ['PPME','EXID','9997'],
+            name = ['Site1','Site2','Site3'],
             data = myObj;
    
         function setChart(name, categories, data, color, type) {
@@ -134,11 +134,11 @@ function selectOrder(user){
             tooltip: {
                 formatter: function() {
                     var point = this.point,
-                        s = this.x +':<b>'+ this.y +'% Production</b><br/>';
+                        s = this.x +':<b>'+ this.y +'% market share</b><br/>';
                     if (point.drilldown) {
-                        s += 'Click to view '+ point.category +' Data';
+                        s += 'Click to view '+ point.category +' versions';
                     } else {
-                        s += 'Click to return to Sites List';
+                        s += 'Click to return to browser brands';
                     }
                     return s;
                 }
@@ -171,9 +171,21 @@ function selectOrder(user){
 </head>
 <body>
 
- 
+ <div >
+                <label >Site List</label>
+                <div >
+                    <input type="text"  id="sitelist"/>
+                </div>
+            </div>
 
+            <div >
+                <div>
+                    <button  id="bth-search" onclick="selectOrder(this);"">Search
+                    </button>
+                </div>
+            </div>
 
+ <div id="feedback"></div>
 <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
 
 </body>
