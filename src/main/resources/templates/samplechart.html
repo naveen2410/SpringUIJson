@@ -17,7 +17,9 @@ href="https://code.highcharts.com/css/highcharts.css" />
 <script th:inline="javascript">
     /*<![CDATA[*/
 
-function selectOrder(user){
+$(function () {
+    var chart;
+    $(document).ready(function() {
     var chart;
     
    
@@ -162,7 +164,9 @@ function selectOrder(user){
     
    
    
-}
+});
+
+});
        
     /*]]>*/
     </script>
@@ -171,19 +175,7 @@ function selectOrder(user){
 </head>
 <body>
 
- <div >
-                <label >Site List</label>
-                <div >
-                    <input type="text"  id="sitelist"/>
-                </div>
-            </div>
 
-            <div >
-                <div>
-                    <button  id="bth-search" onclick="selectOrder(this);"">Search
-                    </button>
-                </div>
-            </div>
 
  <div id="feedback"></div>
 <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
