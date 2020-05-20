@@ -21,8 +21,8 @@ href="https://code.highcharts.com/css/highcharts.css" />
 <script th:inline="javascript">
     /*<![CDATA[*/
 
-    	function myFunc(){
-    	alert("Inside myFunc");
+    	function myFunc(name){
+    	alert("Inside myFunc"+name);
     	
     	var text = '[{"name": "Mozilla","y": 61.41}, {"name": "Safari","y": 11.84}]';
     	var myObj = JSON.parse(text);
@@ -60,7 +60,7 @@ href="https://code.highcharts.com/css/highcharts.css" />
                         events: {
                             click: function() {
                                 //location.href = this.options.url;
-                                alert(this.name);
+                                //alert(this.name);
                                 myFunc();
                             }
                         }
@@ -121,7 +121,7 @@ $(function () {
                             click: function() {
                                 //location.href = this.options.url;
                                 alert(this.name);
-                                myFunc();
+                                myFunc(this.name);
                             }
                         }
                     }
