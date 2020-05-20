@@ -21,6 +21,11 @@ href="https://code.highcharts.com/css/highcharts.css" />
 <script th:inline="javascript">
     /*<![CDATA[*/
 
+    	function myFunc(){
+    	alert("Inside myFunc");
+    }
+    	
+    	
 $(function () {
     var chart;
     $(document).ready(function() {
@@ -62,6 +67,7 @@ $(function () {
                             click: function() {
                                 //location.href = this.options.url;
                                 alert(this.name);
+                                myFunc();
                             }
                         }
                     }
