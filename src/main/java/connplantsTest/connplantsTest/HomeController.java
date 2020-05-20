@@ -38,8 +38,15 @@ public class HomeController {
 	
 	@GetMapping
 	public String index() {
-		return "redirect:/chart";
+		return "redirect:/piechart";
 	}
+	
+	@GetMapping("/piechart")
+	public String loginUser2(Model model) {
+		// model.addAttribute("username", new SearchCriteria());
+		return "samplepiechart";
+	}
+	
 	
 	@GetMapping("/chart")
 	public String loginUser1(Model model) {

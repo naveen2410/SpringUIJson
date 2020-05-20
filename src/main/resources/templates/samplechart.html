@@ -44,8 +44,8 @@ $(function () {
    
    
         var colors = Highcharts.getOptions().colors,
-            categories = ['PPME','EXID','9997'],
-            name = ['Site1','Site2','Site3'],
+            categories = ['PPME','EXID'],
+            name = ['Site1','Site2'],
             data = myObj;
    
         function setChart(name, categories, data, color, type) {
@@ -136,11 +136,11 @@ $(function () {
             tooltip: {
                 formatter: function() {
                     var point = this.point,
-                        s = this.x +':<b>'+ this.y +'% market share</b><br/>';
+                        s = this.x +':<b>'+ this.y +'% Production</b><br/>';
                     if (point.drilldown) {
-                        s += 'Click to view '+ point.category +' versions';
+                        s += 'Click to view '+ point.category +' orders';
                     } else {
-                        s += 'Click to return to browser brands';
+                        s += 'Click to return to sites';
                     }
                     return s;
                 }
