@@ -25,7 +25,8 @@ $(function () {
     var chart;
     $(document).ready(function() {
 
-    	
+    	var text = '[{"name": "Chrome","y": 61.41}, {"name": "Internet Explorer","y": 11.84}]';
+    	var myObj = JSON.parse(text);
     	
     	Highcharts.chart('container', {
     	    chart: {
@@ -69,24 +70,7 @@ $(function () {
     	    series: [{
     	        name: 'Brands',
     	        colorByPoint: true,
-    	        data: [{
-    	            name: 'Chrome',
-    	            y: 61.41,
-    	            sliced: true,
-    	            selected: true
-    	        }, {
-    	            name: 'Internet Explorer',
-    	            y: 11.84
-    	        }, {
-    	            name: 'Firefox',
-    	            y: 10.85
-    	        }, {
-    	            name: 'Edge',
-    	            y: 4.67
-    	        }, {
-    	            name: 'Safari',
-    	            y: 4.18
-    	        }]
+    	        data: myObj
     	    }]
     	});
     	
