@@ -142,12 +142,12 @@
 		alert("Inside loadRes" + name);
 
 		if (name == "WC1") {
-			var text = '[{"name": "Mozilla","y": 61.41}, {"name": "Safari","y": 11.84}]';
+			var text = '[{"name": "Reason 1","y": 61.41}, {"name": "Reason 2","y": 11.84}]';
 			var myObj = JSON.parse(text);
 
 			Highcharts
 					.chart(
-							'container1',
+							'containerwc1',
 							{
 								chart : {
 									plotBackgroundColor : null,
@@ -156,7 +156,7 @@
 									type : 'pie'
 								},
 								title : {
-									text : 'Browser market shares in January, 2018'
+									text : 'Resource Status in Duration (%)'
 								},
 								tooltip : {
 									pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -182,14 +182,69 @@
 												click : function() {
 													//location.href = this.options.url;
 													//alert(this.name);
-													myFunc();
+													loadWC();
 												}
 											}
 										}
 									}
 								},
 								series : [ {
-									name : 'Brands',
+									name : 'Percentage',
+									colorByPoint : true,
+									data : myObj
+								} ]
+							});
+			
+			
+
+			var text = '[{"name": "Reason 3","y": 61.41}, {"name": "Reason 4","y": 11.84}]';
+			var myObj = JSON.parse(text);
+
+			Highcharts
+					.chart(
+							'containerwc2',
+							{
+								chart : {
+									plotBackgroundColor : null,
+									plotBorderWidth : null,
+									plotShadow : false,
+									type : 'pie'
+								},
+								title : {
+									text : 'Resource Status in Duration (%)'
+								},
+								tooltip : {
+									pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+								},
+								accessibility : {
+									point : {
+										valueSuffix : '%'
+									}
+								},
+								plotOptions : {
+									pie : {
+										allowPointSelect : true,
+										cursor : 'pointer',
+										dataLabels : {
+											enabled : true,
+											format : '<b>{point.name}</b>: {point.percentage:.1f} %'
+										}
+									},
+									series : {
+										cursor : 'pointer',
+										point : {
+											events : {
+												click : function() {
+													//location.href = this.options.url;
+													//alert(this.name);
+													loadWC();
+												}
+											}
+										}
+									}
+								},
+								series : [ {
+									name : 'Percentage',
 									colorByPoint : true,
 									data : myObj
 								} ]
