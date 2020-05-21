@@ -197,7 +197,451 @@
 			
 			
 
-			var text = '[{"name": "Reason 3","y": 61.41}, {"name": "Reason 4","y": 11.84}]';
+			var text = '[{"name": "Reason 3","y": 61.41}, {"name": "Reason 4","y": 11.84}, {"name": "Reason 5","y": 21}]';
+			var myObj = JSON.parse(text);
+
+			Highcharts
+					.chart(
+							'containerwc2',
+							{
+								chart : {
+									plotBackgroundColor : null,
+									plotBorderWidth : null,
+									plotShadow : false,
+									type : 'pie'
+								},
+								title : {
+									text : 'Resource Status in Duration (%)'
+								},
+								tooltip : {
+									pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+								},
+								accessibility : {
+									point : {
+										valueSuffix : '%'
+									}
+								},
+								plotOptions : {
+									pie : {
+										allowPointSelect : true,
+										cursor : 'pointer',
+										dataLabels : {
+											enabled : true,
+											format : '<b>{point.name}</b>: {point.percentage:.1f} %'
+										}
+									},
+									series : {
+										cursor : 'pointer',
+										point : {
+											events : {
+												click : function() {
+													//location.href = this.options.url;
+													//alert(this.name);
+													loadWC();
+												}
+											}
+										}
+									}
+								},
+								series : [ {
+									name : 'Percentage',
+									colorByPoint : true,
+									data : myObj
+								} ]
+							});
+
+		}
+		
+		if (name == "WC2") {
+			var text = '[{"name": "Reason 6","y": 61.41}, {"name": "Reason 7","y": 11.84}]';
+			var myObj = JSON.parse(text);
+
+			Highcharts
+					.chart(
+							'containerwc1',
+							{
+								chart : {
+									plotBackgroundColor : null,
+									plotBorderWidth : null,
+									plotShadow : false,
+									type : 'pie'
+								},
+								title : {
+									text : 'Resource Status in Duration (%)'
+								},
+								tooltip : {
+									pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+								},
+								accessibility : {
+									point : {
+										valueSuffix : '%'
+									}
+								},
+								plotOptions : {
+									pie : {
+										allowPointSelect : true,
+										cursor : 'pointer',
+										dataLabels : {
+											enabled : true,
+											format : '<b>{point.name}</b>: {point.percentage:.1f} %'
+										}
+									},
+									series : {
+										cursor : 'pointer',
+										point : {
+											events : {
+												click : function() {
+													//location.href = this.options.url;
+													//alert(this.name);
+													loadWC();
+												}
+											}
+										}
+									}
+								},
+								series : [ {
+									name : 'Percentage',
+									colorByPoint : true,
+									data : myObj
+								} ]
+							});
+			
+			
+
+			var text = '[{"name": "Reason 8","y": 61.41}, {"name": "Reason 9","y": 11.84},{"name": "Reason 10","y": 61.41}, {"name": "Reason 11","y": 11.84}]';
+			var myObj = JSON.parse(text);
+
+			Highcharts
+					.chart(
+							'containerwc2',
+							{
+								chart : {
+									plotBackgroundColor : null,
+									plotBorderWidth : null,
+									plotShadow : false,
+									type : 'pie'
+								},
+								title : {
+									text : 'Resource Status in Duration (%)'
+								},
+								tooltip : {
+									pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+								},
+								accessibility : {
+									point : {
+										valueSuffix : '%'
+									}
+								},
+								plotOptions : {
+									pie : {
+										allowPointSelect : true,
+										cursor : 'pointer',
+										dataLabels : {
+											enabled : true,
+											format : '<b>{point.name}</b>: {point.percentage:.1f} %'
+										}
+									},
+									series : {
+										cursor : 'pointer',
+										point : {
+											events : {
+												click : function() {
+													//location.href = this.options.url;
+													//alert(this.name);
+													loadWC();
+												}
+											}
+										}
+									}
+								},
+								series : [ {
+									name : 'Percentage',
+									colorByPoint : true,
+									data : myObj
+								} ]
+							});
+
+		}
+		
+		if (name == "WC3") {
+			var text = '[{"name": "Reason 6","y": 61.41}, {"name": "Reason 7","y": 11.84}]';
+			var myObj = JSON.parse(text);
+
+			Highcharts
+					.chart(
+							'containerwc1',
+							{
+								chart : {
+									plotBackgroundColor : null,
+									plotBorderWidth : null,
+									plotShadow : false,
+									type : 'pie'
+								},
+								title : {
+									text : 'Resource Status in Duration (%)'
+								},
+								tooltip : {
+									pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+								},
+								accessibility : {
+									point : {
+										valueSuffix : '%'
+									}
+								},
+								plotOptions : {
+									pie : {
+										allowPointSelect : true,
+										cursor : 'pointer',
+										dataLabels : {
+											enabled : true,
+											format : '<b>{point.name}</b>: {point.percentage:.1f} %'
+										}
+									},
+									series : {
+										cursor : 'pointer',
+										point : {
+											events : {
+												click : function() {
+													//location.href = this.options.url;
+													//alert(this.name);
+													loadWC();
+												}
+											}
+										}
+									}
+								},
+								series : [ {
+									name : 'Percentage',
+									colorByPoint : true,
+									data : myObj
+								} ]
+							});
+			
+			
+
+			var text = '[{"name": "Reason 8","y": 61.41}, {"name": "Reason 9","y": 11.84},{"name": "Reason 10","y": 61.41}, {"name": "Reason 11","y": 11.84}]';
+			var myObj = JSON.parse(text);
+
+			Highcharts
+					.chart(
+							'containerwc2',
+							{
+								chart : {
+									plotBackgroundColor : null,
+									plotBorderWidth : null,
+									plotShadow : false,
+									type : 'pie'
+								},
+								title : {
+									text : 'Resource Status in Duration (%)'
+								},
+								tooltip : {
+									pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+								},
+								accessibility : {
+									point : {
+										valueSuffix : '%'
+									}
+								},
+								plotOptions : {
+									pie : {
+										allowPointSelect : true,
+										cursor : 'pointer',
+										dataLabels : {
+											enabled : true,
+											format : '<b>{point.name}</b>: {point.percentage:.1f} %'
+										}
+									},
+									series : {
+										cursor : 'pointer',
+										point : {
+											events : {
+												click : function() {
+													//location.href = this.options.url;
+													//alert(this.name);
+													loadWC();
+												}
+											}
+										}
+									}
+								},
+								series : [ {
+									name : 'Percentage',
+									colorByPoint : true,
+									data : myObj
+								} ]
+							});
+
+		}
+		
+		if (name == "WC4") {
+			var text = '[{"name": "Reason 3","y": 61.41}, {"name": "Reason 7","y": 11.84}]';
+			var myObj = JSON.parse(text);
+
+			Highcharts
+					.chart(
+							'containerwc1',
+							{
+								chart : {
+									plotBackgroundColor : null,
+									plotBorderWidth : null,
+									plotShadow : false,
+									type : 'pie'
+								},
+								title : {
+									text : 'Resource Status in Duration (%)'
+								},
+								tooltip : {
+									pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+								},
+								accessibility : {
+									point : {
+										valueSuffix : '%'
+									}
+								},
+								plotOptions : {
+									pie : {
+										allowPointSelect : true,
+										cursor : 'pointer',
+										dataLabels : {
+											enabled : true,
+											format : '<b>{point.name}</b>: {point.percentage:.1f} %'
+										}
+									},
+									series : {
+										cursor : 'pointer',
+										point : {
+											events : {
+												click : function() {
+													//location.href = this.options.url;
+													//alert(this.name);
+													loadWC();
+												}
+											}
+										}
+									}
+								},
+								series : [ {
+									name : 'Percentage',
+									colorByPoint : true,
+									data : myObj
+								} ]
+							});
+			
+			
+
+			var text = '[{"name": "Reason 1","y": 61.41}, {"name": "Reason 2","y": 11.84},{"name": "Reason 8","y": 61.41}, {"name": "Reason 11","y": 11.84}]';
+			var myObj = JSON.parse(text);
+
+			Highcharts
+					.chart(
+							'containerwc2',
+							{
+								chart : {
+									plotBackgroundColor : null,
+									plotBorderWidth : null,
+									plotShadow : false,
+									type : 'pie'
+								},
+								title : {
+									text : 'Resource Status in Duration (%)'
+								},
+								tooltip : {
+									pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+								},
+								accessibility : {
+									point : {
+										valueSuffix : '%'
+									}
+								},
+								plotOptions : {
+									pie : {
+										allowPointSelect : true,
+										cursor : 'pointer',
+										dataLabels : {
+											enabled : true,
+											format : '<b>{point.name}</b>: {point.percentage:.1f} %'
+										}
+									},
+									series : {
+										cursor : 'pointer',
+										point : {
+											events : {
+												click : function() {
+													//location.href = this.options.url;
+													//alert(this.name);
+													loadWC();
+												}
+											}
+										}
+									}
+								},
+								series : [ {
+									name : 'Percentage',
+									colorByPoint : true,
+									data : myObj
+								} ]
+							});
+
+		}
+		
+		if (name == "WC4") {
+			var text = '[{"name": "Reason 3","y": 61.41}, {"name": "Reason 7","y": 11.84}]';
+			var myObj = JSON.parse(text);
+
+			Highcharts
+					.chart(
+							'containerwc1',
+							{
+								chart : {
+									plotBackgroundColor : null,
+									plotBorderWidth : null,
+									plotShadow : false,
+									type : 'pie'
+								},
+								title : {
+									text : 'Resource Status in Duration (%)'
+								},
+								tooltip : {
+									pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+								},
+								accessibility : {
+									point : {
+										valueSuffix : '%'
+									}
+								},
+								plotOptions : {
+									pie : {
+										allowPointSelect : true,
+										cursor : 'pointer',
+										dataLabels : {
+											enabled : true,
+											format : '<b>{point.name}</b>: {point.percentage:.1f} %'
+										}
+									},
+									series : {
+										cursor : 'pointer',
+										point : {
+											events : {
+												click : function() {
+													//location.href = this.options.url;
+													//alert(this.name);
+													loadWC();
+												}
+											}
+										}
+									}
+								},
+								series : [ {
+									name : 'Percentage',
+									colorByPoint : true,
+									data : myObj
+								} ]
+							});
+			
+			
+
+			var text = '[{"name": "Reason 1","y": 61.41}, {"name": "Reason 2","y": 11.84},{"name": "Reason 8","y": 61.41}, {"name": "Reason 11","y": 11.84}]';
 			var myObj = JSON.parse(text);
 
 			Highcharts
