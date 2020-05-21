@@ -1,15 +1,19 @@
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Production Analysis - View</title>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <link rel="stylesheet"
-href="https://code.highcharts.com/css/highcharts.css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<title>Production Analysis - View</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://code.highcharts.com/css/highcharts.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/drilldown.js"></script>
@@ -19,222 +23,223 @@ href="https://code.highcharts.com/css/highcharts.css" />
 
 
 <script th:inline="javascript">
-    /*<![CDATA[*/
+	/*<![CDATA[*/
 
-    	
-    	function loadWC(){
-    	
-    		alert("Inside loadWC");
-    		
-    		//load site1 wc
-    		var text = '[{"name": "WC1","y": 61.41}, {"name": "WC2","y": 11.84},{"name": "WC3","y": 14}]';
-        	var myObj = JSON.parse(text);
-        	
-        	Highcharts.chart('containerwc1', {
-        	    chart: {
-        	        plotBackgroundColor: null,
-        	        plotBorderWidth: null,
-        	        plotShadow: false,
-        	        type: 'pie'
-        	    },
-        	    title: {
-        	        text: 'Production Rate (%)'
-        	    },
-        	    tooltip: {
-        	        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        	    },
-        	    accessibility: {
-        	        point: {
-        	            valueSuffix: '%'
-        	        }
-        	    },
-        	    plotOptions: {
-        	        pie: {
-        	            allowPointSelect: true,
-        	            cursor: 'pointer',
-        	            dataLabels: {
-        	                enabled: true,
-        	                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-        	            }
-        	        },
-        	        series: {
-                        cursor: 'pointer',
-                        point: {
-                            events: {
-                                click: function() {
-                                    //location.href = this.options.url;
-                                    alert(this.name);
-                                    myFunc(this.name);
-                                }
-                            }
-                        }
-                    }
-        	    },
-        	    series: [{
-        	        name: 'Rate',
-        	        colorByPoint: true,
-        	        data: myObj
-        	    }]
-        	});
-        	
-        	//load site2 wc
-    		var text = '[{"name": "WC4","y": 61.41}, {"name": "WC5","y": 11.84}]';
-        	var myObj = JSON.parse(text);
-        	
-        	Highcharts.chart('containerwc2', {
-        	    chart: {
-        	        plotBackgroundColor: null,
-        	        plotBorderWidth: null,
-        	        plotShadow: false,
-        	        type: 'pie'
-        	    },
-        	    title: {
-        	        text: 'Production Rate (%)'
-        	    },
-        	    tooltip: {
-        	        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        	    },
-        	    accessibility: {
-        	        point: {
-        	            valueSuffix: '%'
-        	        }
-        	    },
-        	    plotOptions: {
-        	        pie: {
-        	            allowPointSelect: true,
-        	            cursor: 'pointer',
-        	            dataLabels: {
-        	                enabled: true,
-        	                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-        	            }
-        	        },
-        	        series: {
-                        cursor: 'pointer',
-                        point: {
-                            events: {
-                                click: function() {
-                                    //location.href = this.options.url;
-                                    alert(this.name);
-                                    myFunc(this.name);
-                                }
-                            }
-                        }
-                    }
-        	    },
-        	    series: [{
-        	        name: 'Rate',
-        	        colorByPoint: true,
-        	        data: myObj
-        	    }]
-        	});
-    }
-    	
-    	
-    	function myFunc(name){
-    	alert("Inside myFunc"+name);
-    	
-    	var text = '[{"name": "Mozilla","y": 61.41}, {"name": "Safari","y": 11.84}]';
-    	var myObj = JSON.parse(text);
-    	
-    	Highcharts.chart('container1', {
-    	    chart: {
-    	        plotBackgroundColor: null,
-    	        plotBorderWidth: null,
-    	        plotShadow: false,
-    	        type: 'pie'
-    	    },
-    	    title: {
-    	        text: 'Browser market shares in January, 2018'
-    	    },
-    	    tooltip: {
-    	        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    	    },
-    	    accessibility: {
-    	        point: {
-    	            valueSuffix: '%'
-    	        }
-    	    },
-    	    plotOptions: {
-    	        pie: {
-    	            allowPointSelect: true,
-    	            cursor: 'pointer',
-    	            dataLabels: {
-    	                enabled: true,
-    	                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-    	            }
-    	        },
-    	        series: {
-                    cursor: 'pointer',
-                    point: {
-                        events: {
-                            click: function() {
-                                //location.href = this.options.url;
-                                //alert(this.name);
-                                myFunc();
-                            }
-                        }
-                    }
-                }
-    	    },
-    	    series: [{
-    	        name: 'Brands',
-    	        colorByPoint: true,
-    	        data: myObj
-    	    }]
-    	});
-    	
-    	
-    	
-  
-    }
-    	
-    	
-$(function () {
-    var chart;
-    $(document).ready(function() {
+	function loadWC() {
 
-    	loadWC();
-    	
-    	
-    	
-    	
-   
-});
+		alert("Inside loadWC");
 
-});
-       
-    /*]]>*/
-    </script>
+		//load site1 wc
+		var text = '[{"name": "WC1","y": 61.41}, {"name": "WC2","y": 11.84},{"name": "WC3","y": 14}]';
+		var myObj = JSON.parse(text);
+
+		Highcharts
+				.chart(
+						'containerwc1',
+						{
+							chart : {
+								plotBackgroundColor : null,
+								plotBorderWidth : null,
+								plotShadow : false,
+								type : 'pie'
+							},
+							title : {
+								text : 'Production Rate (%)'
+							},
+							tooltip : {
+								pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+							},
+							accessibility : {
+								point : {
+									valueSuffix : '%'
+								}
+							},
+							plotOptions : {
+								pie : {
+									allowPointSelect : true,
+									cursor : 'pointer',
+									dataLabels : {
+										enabled : true,
+										format : '<b>{point.name}</b>: {point.percentage:.1f} %'
+									}
+								},
+								series : {
+									cursor : 'pointer',
+									point : {
+										events : {
+											click : function() {
+												//location.href = this.options.url;
+												alert(this.name);
+												loadRes(this.name);
+											}
+										}
+									}
+								}
+							},
+							series : [ {
+								name : 'Rate',
+								colorByPoint : true,
+								data : myObj
+							} ]
+						});
+
+		//load site2 wc
+		var text = '[{"name": "WC4","y": 61.41}, {"name": "WC5","y": 11.84}]';
+		var myObj = JSON.parse(text);
+
+		Highcharts
+				.chart(
+						'containerwc2',
+						{
+							chart : {
+								plotBackgroundColor : null,
+								plotBorderWidth : null,
+								plotShadow : false,
+								type : 'pie'
+							},
+							title : {
+								text : 'Production Rate (%)'
+							},
+							tooltip : {
+								pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+							},
+							accessibility : {
+								point : {
+									valueSuffix : '%'
+								}
+							},
+							plotOptions : {
+								pie : {
+									allowPointSelect : true,
+									cursor : 'pointer',
+									dataLabels : {
+										enabled : true,
+										format : '<b>{point.name}</b>: {point.percentage:.1f} %'
+									}
+								},
+								series : {
+									cursor : 'pointer',
+									point : {
+										events : {
+											click : function() {
+												//location.href = this.options.url;
+												alert(this.name);
+												loadRes(this.name);
+											}
+										}
+									}
+								}
+							},
+							series : [ {
+								name : 'Rate',
+								colorByPoint : true,
+								data : myObj
+							} ]
+						});
+	}
+
+	function loadRes(name) {
+		alert("Inside loadRes" + name);
+
+		if (name == "WC1") {
+			var text = '[{"name": "Mozilla","y": 61.41}, {"name": "Safari","y": 11.84}]';
+			var myObj = JSON.parse(text);
+
+			Highcharts
+					.chart(
+							'container1',
+							{
+								chart : {
+									plotBackgroundColor : null,
+									plotBorderWidth : null,
+									plotShadow : false,
+									type : 'pie'
+								},
+								title : {
+									text : 'Browser market shares in January, 2018'
+								},
+								tooltip : {
+									pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+								},
+								accessibility : {
+									point : {
+										valueSuffix : '%'
+									}
+								},
+								plotOptions : {
+									pie : {
+										allowPointSelect : true,
+										cursor : 'pointer',
+										dataLabels : {
+											enabled : true,
+											format : '<b>{point.name}</b>: {point.percentage:.1f} %'
+										}
+									},
+									series : {
+										cursor : 'pointer',
+										point : {
+											events : {
+												click : function() {
+													//location.href = this.options.url;
+													//alert(this.name);
+													myFunc();
+												}
+											}
+										}
+									}
+								},
+								series : [ {
+									name : 'Brands',
+									colorByPoint : true,
+									data : myObj
+								} ]
+							});
+
+		}
+	}
+
+	$(function() {
+		var chart;
+		$(document).ready(function() {
+
+			loadWC();
+
+		});
+
+	});
+
+	/*]]>*/
+</script>
 
 
 </head>
 <body>
 
 
-<table>
-<tr>
-<td>
-<figure class="highcharts-figure">
-    <div id="containerwc1"></div>
-</figure>
-</td>
-<td>
-<figure class="highcharts-figure">
-    <div id="containerwc2"></div>
-</figure>
-</td>
-</tr>
-</table>
+	<table>
+		<tr>
+			<td>
+				<figure class="highcharts-figure">
+					<div id="containerwc1"></div>
+				</figure>
+			</td>
+			<td>
+				<figure class="highcharts-figure">
+					<div id="containerwc2"></div>
+				</figure>
+			</td>
+		</tr>
+	</table>
 
 
 
 
-<figure class="highcharts-figure">
-    <div id="container1"></div>
-</figure>
+	<figure class="highcharts-figure">
+		<div id="container1"></div>
+	</figure>
 
- <div id="feedback"></div>
-<!-- <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>-->
+	<div id="feedback"></div>
+	<!-- <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>-->
 
 </body>
 </html>
