@@ -21,6 +21,61 @@ href="https://code.highcharts.com/css/highcharts.css" />
 <script th:inline="javascript">
     /*<![CDATA[*/
 
+    	
+    	function loadWC(){
+    		alert("Inside loadWC");
+    		var text = '[{"name": "Chrome","y": 61.41}, {"name": "Internet Explorer","y": 11.84}]';
+        	var myObj = JSON.parse(text);
+        	
+        	Highcharts.chart('container', {
+        	    chart: {
+        	        plotBackgroundColor: null,
+        	        plotBorderWidth: null,
+        	        plotShadow: false,
+        	        type: 'pie'
+        	    },
+        	    title: {
+        	        text: 'Browser market shares in January, 2018'
+        	    },
+        	    tooltip: {
+        	        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        	    },
+        	    accessibility: {
+        	        point: {
+        	            valueSuffix: '%'
+        	        }
+        	    },
+        	    plotOptions: {
+        	        pie: {
+        	            allowPointSelect: true,
+        	            cursor: 'pointer',
+        	            dataLabels: {
+        	                enabled: true,
+        	                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+        	            }
+        	        },
+        	        series: {
+                        cursor: 'pointer',
+                        point: {
+                            events: {
+                                click: function() {
+                                    //location.href = this.options.url;
+                                    alert(this.name);
+                                    myFunc(this.name);
+                                }
+                            }
+                        }
+                    }
+        	    },
+        	    series: [{
+        	        name: 'Brands',
+        	        colorByPoint: true,
+        	        data: myObj
+        	    }]
+        	});
+    }
+    	
+    	
     	function myFunc(name){
     	alert("Inside myFunc"+name);
     	
@@ -84,55 +139,7 @@ $(function () {
     var chart;
     $(document).ready(function() {
 
-    	var text = '[{"name": "Chrome","y": 61.41}, {"name": "Internet Explorer","y": 11.84}]';
-    	var myObj = JSON.parse(text);
-    	
-    	Highcharts.chart('container', {
-    	    chart: {
-    	        plotBackgroundColor: null,
-    	        plotBorderWidth: null,
-    	        plotShadow: false,
-    	        type: 'pie'
-    	    },
-    	    title: {
-    	        text: 'Browser market shares in January, 2018'
-    	    },
-    	    tooltip: {
-    	        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    	    },
-    	    accessibility: {
-    	        point: {
-    	            valueSuffix: '%'
-    	        }
-    	    },
-    	    plotOptions: {
-    	        pie: {
-    	            allowPointSelect: true,
-    	            cursor: 'pointer',
-    	            dataLabels: {
-    	                enabled: true,
-    	                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-    	            }
-    	        },
-    	        series: {
-                    cursor: 'pointer',
-                    point: {
-                        events: {
-                            click: function() {
-                                //location.href = this.options.url;
-                                alert(this.name);
-                                myFunc(this.name);
-                            }
-                        }
-                    }
-                }
-    	    },
-    	    series: [{
-    	        name: 'Brands',
-    	        colorByPoint: true,
-    	        data: myObj
-    	    }]
-    	});
+    	loadWC();
     	
     	
     	
