@@ -27,7 +27,7 @@
 
 	function loadWC() {
 
-		alert("Inside loadWC");
+		//alert("Inside loadWC");
 
 		//load site1 wc
 		var text = '[{"name": "WC1","y": 61.41}, {"name": "WC2","y": 11.84},{"name": "WC3","y": 14}]';
@@ -69,7 +69,7 @@
 										events : {
 											click : function() {
 												//location.href = this.options.url;
-												alert(this.name);
+												//alert(this.name);
 												loadRes(this.name);
 											}
 										}
@@ -84,7 +84,7 @@
 						});
 
 		//load site2 wc
-		var text = '[{"name": "WC4","y": 61.41}, {"name": "WC5","y": 11.84}]';
+		var text = '[{"name": "WC4","y": 71.41}, {"name": "WC5","y": 29}]';
 		var myObj = JSON.parse(text);
 
 		Highcharts
@@ -123,7 +123,7 @@
 										events : {
 											click : function() {
 												//location.href = this.options.url;
-												alert(this.name);
+												//alert(this.name);
 												loadRes(this.name);
 											}
 										}
@@ -139,7 +139,7 @@
 	}
 
 	function loadRes(name) {
-		alert("Inside loadRes" + name);
+		//alert("Inside loadRes" + name);
 
 		if (name == "WC1") {
 			var text = '[{"name": "Reason 1","y": 61.41}, {"name": "Reason 2","y": 11.84}]';
@@ -197,7 +197,7 @@
 			
 			
 
-			var text = '[{"name": "Reason 3","y": 61.41}, {"name": "Reason 4","y": 11.84}, {"name": "Reason 5","y": 21}]';
+			var text = '[{"name": "Reason 3","y": 41.41}, {"name": "Reason 4","y": 19.84}, {"name": "Reason 5","y": 31}]';
 			var myObj = JSON.parse(text);
 
 			Highcharts
@@ -253,7 +253,7 @@
 		}
 		
 		if (name == "WC2") {
-			var text = '[{"name": "Reason 6","y": 61.41}, {"name": "Reason 7","y": 11.84}]';
+			var text = '[{"name": "Reason 6","y": 91.41}, {"name": "Reason 7","y": 9.84}]';
 			var myObj = JSON.parse(text);
 
 			Highcharts
@@ -308,7 +308,7 @@
 			
 			
 
-			var text = '[{"name": "Reason 8","y": 61.41}, {"name": "Reason 9","y": 11.84},{"name": "Reason 10","y": 61.41}, {"name": "Reason 11","y": 11.84}]';
+			var text = '[{"name": "Reason 8","y": 21.41}, {"name": "Reason 9","y": 66.84},{"name": "Reason 10","y": 7.41}, {"name": "Reason 11","y": 12.84}]';
 			var myObj = JSON.parse(text);
 
 			Highcharts
@@ -364,7 +364,7 @@
 		}
 		
 		if (name == "WC3") {
-			var text = '[{"name": "Reason 6","y": 61.41}, {"name": "Reason 7","y": 11.84}]';
+			var text = '[{"name": "Reason 6","y": 98.41}, {"name": "Reason 7","y": 2.84}]';
 			var myObj = JSON.parse(text);
 
 			Highcharts
@@ -419,7 +419,7 @@
 			
 			
 
-			var text = '[{"name": "Reason 8","y": 61.41}, {"name": "Reason 9","y": 11.84},{"name": "Reason 10","y": 61.41}, {"name": "Reason 11","y": 11.84}]';
+			var text = '[{"name": "Reason 8","y": 56.41}, {"name": "Reason 9","y": 3.84},{"name": "Reason 10","y": 34.41}, {"name": "Reason 11","y": 9.84}]';
 			var myObj = JSON.parse(text);
 
 			Highcharts
@@ -475,7 +475,7 @@
 		}
 		
 		if (name == "WC4") {
-			var text = '[{"name": "Reason 3","y": 61.41}, {"name": "Reason 7","y": 11.84}]';
+			var text = '[{"name": "Reason 3","y": 15.41}, {"name": "Reason 7","y": 85.84}]';
 			var myObj = JSON.parse(text);
 
 			Highcharts
@@ -530,7 +530,7 @@
 			
 			
 
-			var text = '[{"name": "Reason 1","y": 61.41}, {"name": "Reason 2","y": 11.84},{"name": "Reason 8","y": 61.41}, {"name": "Reason 11","y": 11.84}]';
+			var text = '[{"name": "Reason 1","y": 76.41}, {"name": "Reason 2","y": 14.84},{"name": "Reason 8","y": 5.41}, {"name": "Reason 11","y": 4.84}]';
 			var myObj = JSON.parse(text);
 
 			Highcharts
@@ -585,8 +585,8 @@
 
 		}
 		
-		if (name == "WC4") {
-			var text = '[{"name": "Reason 3","y": 61.41}, {"name": "Reason 7","y": 11.84}]';
+		if (name == "WC5") {
+			var text = '[{"name": "Reason 3","y": 91.41}, {"name": "Reason 7","y": 9.84}]';
 			var myObj = JSON.parse(text);
 
 			Highcharts
@@ -641,7 +641,7 @@
 			
 			
 
-			var text = '[{"name": "Reason 1","y": 61.41}, {"name": "Reason 2","y": 11.84},{"name": "Reason 8","y": 61.41}, {"name": "Reason 11","y": 11.84}]';
+			var text = '[{"name": "Reason 1","y": 67.41}, {"name": "Reason 2","y": 23.84},{"name": "Reason 8","y": 11.41}, {"name": "Reason 11","y": 2.84}]';
 			var myObj = JSON.parse(text);
 
 			Highcharts
