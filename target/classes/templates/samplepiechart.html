@@ -23,11 +23,65 @@ href="https://code.highcharts.com/css/highcharts.css" />
 
     	
     	function loadWC(){
+    	
     		alert("Inside loadWC");
+    		
+    		//load site1 wc
     		var text = '[{"name": "Chrome","y": 61.41}, {"name": "Internet Explorer","y": 11.84}]';
         	var myObj = JSON.parse(text);
         	
-        	Highcharts.chart('container', {
+        	Highcharts.chart('containerwc1', {
+        	    chart: {
+        	        plotBackgroundColor: null,
+        	        plotBorderWidth: null,
+        	        plotShadow: false,
+        	        type: 'pie'
+        	    },
+        	    title: {
+        	        text: 'Browser market shares in January, 2018'
+        	    },
+        	    tooltip: {
+        	        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        	    },
+        	    accessibility: {
+        	        point: {
+        	            valueSuffix: '%'
+        	        }
+        	    },
+        	    plotOptions: {
+        	        pie: {
+        	            allowPointSelect: true,
+        	            cursor: 'pointer',
+        	            dataLabels: {
+        	                enabled: true,
+        	                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+        	            }
+        	        },
+        	        series: {
+                        cursor: 'pointer',
+                        point: {
+                            events: {
+                                click: function() {
+                                    //location.href = this.options.url;
+                                    alert(this.name);
+                                    myFunc(this.name);
+                                }
+                            }
+                        }
+                    }
+        	    },
+        	    series: [{
+        	        name: 'Brands',
+        	        colorByPoint: true,
+        	        data: myObj
+        	    }]
+        	});
+        	
+        	//load site2 wc
+    		var text = '[{"name": "Chrome","y": 61.41}, {"name": "Internet Explorer","y": 11.84}]';
+        	var myObj = JSON.parse(text);
+        	
+        	Highcharts.chart('containerwc2', {
         	    chart: {
         	        plotBackgroundColor: null,
         	        plotBorderWidth: null,
@@ -156,9 +210,24 @@ $(function () {
 </head>
 <body>
 
+
+<table>
+<tr>
+<td>
 <figure class="highcharts-figure">
-    <div id="container"></div>
+    <div id="containerwc1"></div>
 </figure>
+</td>
+<td>
+<figure class="highcharts-figure">
+    <div id="containerwc2"></div>
+</figure>
+</td>
+</tr>
+</table>
+
+
+
 
 <figure class="highcharts-figure">
     <div id="container1"></div>
