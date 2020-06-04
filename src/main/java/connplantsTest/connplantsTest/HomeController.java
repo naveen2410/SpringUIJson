@@ -44,7 +44,8 @@ public class HomeController {
 	@GetMapping("/piechart")
 	public String loginUser2(Model model) {
 		// model.addAttribute("username", new SearchCriteria());
-		return "samplepiechart";
+		//return "samplepiechart";
+		return "samplepiechartTree";
 	}
 	
 	
