@@ -21,10 +21,12 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
-  <!-- 5 include the minified jstree source -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
-  <script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+<!-- 5 include the minified jstree source -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+<script>
   
 
 
@@ -36,31 +38,51 @@
 
 		// My JSON Data
 const locations = [
-  {
-    id: 1,
-    name: "San Francisco Bay Area",
-    parentId: null
-  },
-  {
-    id: 2,
-    name: "San Jose",
-    parentId: 3
-  },
-  {
-    id: 3,
-    name: "South Bay",
-    parentId: 1
-  },
-  {
-    id: 4,
-    name: "San Francisco",
-    parentId: 1
-  },
-  {
-    id: 5,
-    name: "Manhattan",
-    parentId: 6
-  },
+	{
+	    id: 1,
+	    name: "PPME",
+	    parentId: null
+	  },
+	  {
+	    id: 2,
+	    name: "WC1",
+	    parentId: 1
+	  },
+	  {
+	    id: 3,
+	    name: "WC2",
+	    parentId: 1
+	  },
+	  {
+	    id: 4,
+	    name: "RES1",
+	    parentId: 2
+	  },
+	  {
+	    id: 5,
+	    name: "RES2",
+	    parentId: 2
+	  },
+	  {
+	    id: 6,
+	    name: "RES3",
+	    parentId: 3
+	  },
+	  {
+	    id: 7,
+	    name: "RES4",
+	    parentId: 3
+	  },
+	  {
+	    id: 8,
+	    name: "EXID",
+	    parentId: null
+	  },
+	  {
+	    id: 9,
+	    name: "WC3",
+	    parentId: 8
+	  }
 ];
 function createTreeView(location) {
   var tree = [],
@@ -91,6 +113,7 @@ function createTreeView(location) {
 
 function myFunction(value){
 alert("Added" + value);
+loadRes(value);
 }
 
 // here is how you build your UL treeview recursively
@@ -810,9 +833,7 @@ var root = createTreeView(locations);
 
 </head>
 <body>
-<div id="container">
-
-</div>
+	<div id="container"></div>
 
 	<table>
 		<tr>
