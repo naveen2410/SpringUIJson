@@ -27,126 +27,138 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
 <script>
-  
-
-
-  </script>
+	
+</script>
 
 
 <script th:inline="javascript">
 	/*<![CDATA[*/
 
-		// My JSON Data
-const locations = [
-	{
-	    id: 1,
-	    name: "PPME",
-	    parentId: null
-	  },
-	  {
-	    id: 2,
-	    name: "WC1",
-	    parentId: 1
-	  },
-	  {
-	    id: 3,
-	    name: "WC2",
-	    parentId: 1
-	  },
-	  {
-	    id: 4,
-	    name: "RES1",
-	    parentId: 2
-	  },
-	  {
-	    id: 5,
-	    name: "RES2",
-	    parentId: 2
-	  },
-	  {
-	    id: 6,
-	    name: "RES3",
-	    parentId: 3
-	  },
-	  {
-	    id: 7,
-	    name: "RES4",
-	    parentId: 3
-	  },
-	  {
-	    id: 8,
-	    name: "EXID",
-	    parentId: null
-	  },
-	  {
-	    id: 9,
-	    name: "WC3",
-	    parentId: 8
-	  }
-];
-function createTreeView(location) {
-  var tree = [],
-    object = {},
-    parent,
-    child;
+	// My JSON Data
+	const locations = [ {
+		id : 1,
+		name : "PPME",
+		parentId : null,
+		type : "site"
+	}, {
+		id : 2,
+		name : "WC1",
+		parentId : 1,
+		type : "wc"
+	}, {
+		id : 3,
+		name : "WC2",
+		parentId : 1,
+		type : "wc"
+	}, {
+		id : 4,
+		name : "RES1",
+		parentId : 2,
+		type : "res"
+	}, {
+		id : 5,
+		name : "RES2",
+		parentId : 2,
+		type : "res"
+	}, {
+		id : 6,
+		name : "RES3",
+		parentId : 3,
+		type : "res"
+	}, {
+		id : 7,
+		name : "RES4",
+		parentId : 3,
+		type : "res"
+	}, {
+		id : 8,
+		name : "EXID",
+		parentId : null,
+		type : "site"
+	}, {
+		id : 9,
+		name : "WC3",
+		parentId : 8,
+		type : "wc"
+	} ];
+	function createTreeView(location) {
+		var tree = [], object = {}, parent, child;
 
-  for (var i = 0; i < location.length; i++) {
-    parent = location[i];
+		for (var i = 0; i < location.length; i++) {
+			parent = location[i];
 
-    object[parent.id] = parent;
-    object[parent.id]["children"] = [];
-  }
+			object[parent.id] = parent;
+			object[parent.id]["children"] = [];
+		}
 
-  for (var id in object) {
-    if (object.hasOwnProperty(id)) {
-      child = object[id];
-      // i made some changes here incase some element is missing so you dont get error and just append th tree insetad 
-      if (child.parentId && object[child["parentId"]]) {
-        object[child["parentId"]]["children"].push(child);
-      } else {
-        tree.push(child);
-      }
-    }
-  }
-  return tree;
-}
+		for ( var id in object) {
+			if (object.hasOwnProperty(id)) {
+				child = object[id];
+				// i made some changes here incase some element is missing so you dont get error and just append th tree insetad 
+				if (child.parentId && object[child["parentId"]]) {
+					object[child["parentId"]]["children"].push(child);
+				} else {
+					tree.push(child);
+				}
+			}
+		}
+		return tree;
+	}
 
-function myFunction(value){
-alert("Added" + value);
-loadRes(value);
-}
-
-// here is how you build your UL treeview recursively
-function CreateUlTreeView(items, parent){
-var ul = document.createElement("ul");
-if (parent)
-    parent.appendChild(ul);
-    items.forEach(function(x) {
-      var li = document.createElement("li");
-      var text = document.createElement("span");
-	  text.innerHTML = x.name;
-	   
-	  var button = document.createElement("button");
-	  button.innerHTML = "Add";
-	 
-var att = document.createAttribute("onclick");       // Create a "class" attribute
-att.value = "myFunction('"+x.name+"')";  
-button.setAttributeNode(att);  
-
-
-	 li.appendChild(text);
-	  li.appendChild(button);
-      if (x.children && x.children.length>0)
-         CreateUlTreeView(x.children, li);
+	//var str = "";
+	 var myList = new Array();
+	 //var myList[];
 	
-      ul.append(li);
-    });
-    return ul;
-}
-var root = createTreeView(locations);
+	function myFunction(value) {
+	
+		//myList.push(value);
 		
+		if(myList.indexOf(value) > -1){
+			myList.splice(myList.indexOf(value), 1);
+		}
+		else{
+			myList.push(value);
+		}
+		
+	
+		
+		alert("Final String : " + myList.join(","));
+	}
+
+	// here is how you build your UL treeview recursively
+	function CreateUlTreeView(items, parent) {
+		var ul = document.createElement("ul");
+		if (parent)
+			parent.appendChild(ul);
+		items.forEach(function(x) {
+			var li = document.createElement("li");
+			var text = document.createElement("span");
+			text.innerHTML = x.name;
+			li.appendChild(text);
+
+			if (x.type == "res") {
+				var button_check = document.createElement("input");
+				button_check.setAttribute("type", "checkbox");
+				
+				var att = document.createAttribute("onclick");       // Create a "class" attribute
+				att.value = "myFunction('"+x.name+"')"; 
+				button_check.setAttributeNode(att);
+				
+				li.appendChild(button_check);
+
+			}
+
+			if (x.children && x.children.length > 0)
+				CreateUlTreeView(x.children, li);
+
+			ul.append(li);
+		});
+		return ul;
+	}
+	var root = createTreeView(locations);
+
 	function loadWC() {
-		CreateUlTreeView(root,document.getElementById("container"))
+		CreateUlTreeView(root, document.getElementById("container"))
 		//alert("Inside loadWC");
 
 		//load site1 wc
@@ -314,8 +326,6 @@ var root = createTreeView(locations);
 									data : myObj
 								} ]
 							});
-			
-			
 
 			var text = '[{"name": "Reason 3","y": 41.41}, {"name": "Reason 4","y": 19.84}, {"name": "Reason 5","y": 31}]';
 			var myObj = JSON.parse(text);
@@ -371,7 +381,7 @@ var root = createTreeView(locations);
 							});
 
 		}
-		
+
 		if (name == "WC2") {
 			var text = '[{"name": "Reason 6","y": 91.41}, {"name": "Reason 7","y": 9.84}]';
 			var myObj = JSON.parse(text);
@@ -425,8 +435,6 @@ var root = createTreeView(locations);
 									data : myObj
 								} ]
 							});
-			
-			
 
 			var text = '[{"name": "Reason 8","y": 21.41}, {"name": "Reason 9","y": 66.84},{"name": "Reason 10","y": 7.41}, {"name": "Reason 11","y": 12.84}]';
 			var myObj = JSON.parse(text);
@@ -482,7 +490,7 @@ var root = createTreeView(locations);
 							});
 
 		}
-		
+
 		if (name == "WC3") {
 			var text = '[{"name": "Reason 6","y": 98.41}, {"name": "Reason 7","y": 2.84}]';
 			var myObj = JSON.parse(text);
@@ -536,8 +544,6 @@ var root = createTreeView(locations);
 									data : myObj
 								} ]
 							});
-			
-			
 
 			var text = '[{"name": "Reason 8","y": 56.41}, {"name": "Reason 9","y": 3.84},{"name": "Reason 10","y": 34.41}, {"name": "Reason 11","y": 9.84}]';
 			var myObj = JSON.parse(text);
@@ -593,7 +599,7 @@ var root = createTreeView(locations);
 							});
 
 		}
-		
+
 		if (name == "WC4") {
 			var text = '[{"name": "Reason 3","y": 15.41}, {"name": "Reason 7","y": 85.84}]';
 			var myObj = JSON.parse(text);
@@ -647,8 +653,6 @@ var root = createTreeView(locations);
 									data : myObj
 								} ]
 							});
-			
-			
 
 			var text = '[{"name": "Reason 1","y": 76.41}, {"name": "Reason 2","y": 14.84},{"name": "Reason 8","y": 5.41}, {"name": "Reason 11","y": 4.84}]';
 			var myObj = JSON.parse(text);
@@ -704,7 +708,7 @@ var root = createTreeView(locations);
 							});
 
 		}
-		
+
 		if (name == "WC5") {
 			var text = '[{"name": "Reason 3","y": 91.41}, {"name": "Reason 7","y": 9.84}]';
 			var myObj = JSON.parse(text);
@@ -758,8 +762,6 @@ var root = createTreeView(locations);
 									data : myObj
 								} ]
 							});
-			
-			
 
 			var text = '[{"name": "Reason 1","y": 67.41}, {"name": "Reason 2","y": 23.84},{"name": "Reason 8","y": 11.41}, {"name": "Reason 11","y": 2.84}]';
 			var myObj = JSON.parse(text);
